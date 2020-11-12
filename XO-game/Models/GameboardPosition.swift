@@ -10,6 +10,11 @@ import Foundation
 
 public struct GameboardPosition: Hashable {
     
-    public let column: Int
-    public let row: Int
+    public var column: Int
+    public var row: Int
+    
+    mutating func setRandom() {
+        column = Int.random(in: 0...2)
+        row = Int.random(in: 0...2)
+    }
 }

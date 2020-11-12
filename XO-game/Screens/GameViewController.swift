@@ -10,6 +10,8 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    var computerPosition = GameboardPosition(column: 0, row: 0)
+    
     private let gameBoard = Gameboard()
     private lazy var referee = Referee(gameboard: gameBoard)
     private var currentState: GameState! {
@@ -50,6 +52,7 @@ class GameViewController: UIViewController {
     }
     
     private func setNextState() {
+        
         if let winner = referee.determineWinner() {
             currentState = GameOverState(winner: winner, gameViewController: self)
             return
@@ -60,11 +63,35 @@ class GameViewController: UIViewController {
             return
         }
         
-        if let playerInputState = currentState as? PlayerState {
-            let player = playerInputState.player.next
-            currentState = PlayerState(player: playerInputState.player.next, gameViewController: self,
-                                       gameBoard: gameBoard, gameBoardView: gameboardView,
-                                       markViewPrototype: player.markViewPrototype)
+        switch GameModeSingleton.shared.mode {
+        case .pvp:
+            if let playerInputState = currentState as? PlayerState {
+                let player = playerInputState.player.next
+                currentState = PlayerState(player: playerInputState.player.next, gameViewController: self,
+                                           gameBoard: gameBoard, gameBoardView: gameboardView,
+                                           markViewPrototype: player.markViewPrototype)
+            }
+            
+        case .pvc:
+            if let playerInputState = currentState as? PlayerState {
+                let player = playerInputState.player.next
+                counter += 1
+                currentState = ComputerState(player: playerInputState.player.next, gameViewController: self,
+                                             gameBoard: gameBoard, gameBoardView: gameboardView,
+                                             markViewPrototype: player.markViewPrototype, fieldFillingCounter: counter)
+                computerPosition.setRandom()
+                currentState.addMark(at: computerPosition)
+                self.setNextState()
+            }
+            
+            else {
+                if let playerInputState = currentState as? ComputerState {
+                    let player = playerInputState.player.next
+                    currentState = PlayerState(player: playerInputState.player.next, gameViewController: self,
+                                               gameBoard: gameBoard, gameBoardView: gameboardView,
+                                               markViewPrototype: player.markViewPrototype)
+                }
+            }
         }
     }
     
@@ -75,7 +102,6 @@ class GameViewController: UIViewController {
         gameBoard.clear()
         setFirstState()
         counter = 0
-        
     }
 }
 

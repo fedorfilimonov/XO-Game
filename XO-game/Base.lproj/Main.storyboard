@@ -1,25 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="suX-eC-D2d">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Start Screen View Controller-->
+        <scene sceneID="Jdb-rd-5sG">
+            <objects>
+                <viewController id="suX-eC-D2d" customClass="StartScreenViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PIk-9T-or5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIC TAC TOE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIC-AV-1ma">
+                                <rect key="frame" x="47.5" y="120" width="280" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLJ-y3-w1Y">
+                                <rect key="frame" x="50" y="293.5" width="80" height="80"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Suj-AF-CyW"/>
+                                    <constraint firstAttribute="height" constant="80" id="hEB-iM-coN"/>
+                                </constraints>
+                                <state key="normal" title="Friend">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startGameVsFriendButtonTapped:" destination="suX-eC-D2d" eventType="touchUpInside" id="IeR-Ta-ZF3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEp-6i-ebe">
+                                <rect key="frame" x="245" y="293.5" width="80" height="80"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="ikq-kk-YRv"/>
+                                    <constraint firstAttribute="height" constant="80" id="tc0-Vj-MkG"/>
+                                </constraints>
+                                <state key="normal" title="Computer">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startGameVsComputerButtonTapped:" destination="suX-eC-D2d" eventType="touchUpInside" id="YgX-Wn-twM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play against" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI1-JQ-MQ9">
+                                <rect key="frame" x="141.5" y="222.5" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="X05-qd-xU4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tI1-JQ-MQ9" firstAttribute="centerX" secondItem="PIk-9T-or5" secondAttribute="centerX" id="4DB-Wn-cac"/>
+                            <constraint firstItem="vLJ-y3-w1Y" firstAttribute="top" secondItem="tI1-JQ-MQ9" secondAttribute="bottom" constant="50" id="AOa-7j-UBa"/>
+                            <constraint firstItem="vLJ-y3-w1Y" firstAttribute="centerY" secondItem="PIk-9T-or5" secondAttribute="centerY" id="Ehy-ig-okF"/>
+                            <constraint firstItem="vLJ-y3-w1Y" firstAttribute="leading" secondItem="X05-qd-xU4" secondAttribute="leading" constant="50" id="I38-tZ-VXn"/>
+                            <constraint firstItem="yIC-AV-1ma" firstAttribute="top" secondItem="X05-qd-xU4" secondAttribute="top" constant="120" id="LpX-8m-QVZ"/>
+                            <constraint firstItem="yIC-AV-1ma" firstAttribute="centerX" secondItem="PIk-9T-or5" secondAttribute="centerX" id="LuF-RT-Lel"/>
+                            <constraint firstItem="X05-qd-xU4" firstAttribute="trailing" secondItem="GEp-6i-ebe" secondAttribute="trailing" constant="50" id="O1L-h4-6dP"/>
+                            <constraint firstItem="GEp-6i-ebe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vLJ-y3-w1Y" secondAttribute="trailing" constant="8" symbolic="YES" id="n0w-ja-Xlk"/>
+                            <constraint firstItem="GEp-6i-ebe" firstAttribute="centerY" secondItem="PIk-9T-or5" secondAttribute="centerY" id="u6R-V4-eLr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="WIZ-CJ-WSp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07X-z3-BDn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-690.39999999999998" y="133.5832083958021"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlK-xv-cci">
-                                <rect key="frame" x="150.5" y="621" width="74" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlK-xv-cci">
+                                <rect key="frame" x="150.5" y="601" width="74" height="26"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="4" maxX="12" maxY="4"/>
                                 <state key="normal" title="Restart"/>
                                 <connections>
@@ -27,19 +112,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyE-7i-9c4">
-                                <rect key="frame" x="44" y="64" width="73" height="21"/>
+                                <rect key="frame" x="44" y="44" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSW-na-Of7">
-                                <rect key="frame" x="250" y="64" width="81" height="21"/>
+                                <rect key="frame" x="251" y="44" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYG-3D-cJV">
-                                <rect key="frame" x="0.0" y="134" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="465"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpC-lq-59T" customClass="GameboardView" customModule="XO_game" customModuleProvider="target">
                                         <rect key="frame" x="16" y="61" width="343" height="343"/>
@@ -57,12 +142,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is 1st player!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5M8-Sh-pRf">
-                                <rect key="frame" x="111" y="105" width="153" height="21"/>
+                                <rect key="frame" x="111" y="85" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FlK-xv-cci" firstAttribute="top" secondItem="LYG-3D-cJV" secondAttribute="bottom" constant="22" id="7Cg-Od-ODs"/>
@@ -79,8 +165,8 @@
                             <constraint firstItem="LYG-3D-cJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tod-Ts-l8E"/>
                             <constraint firstItem="LSW-na-Of7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lyE-7i-9c4" secondAttribute="trailing" constant="8" symbolic="YES" id="zzk-Xb-alW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jrx-Xu-NWP"/>
                     <connections>
                         <outlet property="firstPlayerTurnLabel" destination="lyE-7i-9c4" id="1eC-po-kqk"/>
                         <outlet property="gameboardView" destination="FpC-lq-59T" id="oJQ-bB-6DM"/>
@@ -94,4 +180,15 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
